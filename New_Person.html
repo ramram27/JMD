@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>New Person Form</title>
+    <link rel="stylesheet" href="{% static 'Gcss/Gate.css'%}">
+
+  </head>
+  <body>
+    <div id="header">
+  <h1>GATE PASS MANAGEMENT SYSTEM</h1>
+  <div id="nav">
+    <a href="/Gateapp/view-Person">ALL PERSON</a>
+    <a href="/Gateapp/New-Person">ADD PERSON</a>
+    <a href="/Gateapp/Search-Person">SEARCH PERSON</a>
+    <a href="/Gateapp/logout">LOGOUT</a>
+    </div>
+  </div>
+    <div id="main">
+      <h2>ADD NEW PERSON RECORD</h2>
+      <form action="/Gateapp/add" method='post'>
+        {% csrf_token %}
+         {{form}}
+         <input type="submit" value="Add">
+
+         </form>
+     </div>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>VIEW PERSON RECORD</title>
+    <link rel="stylesheet" href="{% static 'Gcss/Gate.css'%}">
+
+  </head>
+  <body>
+    <div id="header">
+  <h1>GATE PASS RECORD MANAGEMENT</h1>
+  <div id="nav">
+     <a href="Gateapp/view-Person">ALL PERSON</a>
+    <a href="/Gateapp/New-Person">ADD PERSON</a>
+    <a href="/Gateapp/Search-Person">SEARCH PERSON</a>
+    <a href="/Gateapp/logout">LOGOUT</a>
+
+    </div>
+  <h2 > {{username}}</h2>
+  </div>
+
+    <div id="main">
+      <h2>VIEW PERSON RECORD</h2>
+
+      <table>
+      <thead>
+        <th>Full_Name</th>
+        <th>National_ID</th>
+        <th>Phone_Number</th>
+        <th>Gender</th>
+        <th>Vehicle_Name</th>
+        <th>Vehicle_Number</th>
+        <th>Date</th>
+        <th>Entry_Time</th>
+        <th>Exit_Time</th>
+      </thead>
+
+     {% for g in gs %}
+    <tr>
+      <td>{{g.full_name}}</td>
+      <td>{{g.national_id}}</td>
+      <td>{{g.phone_number}}</td>
+      <td>{{g.gender}}</td>
+      <td>{{g.vehicle_name}}</td>
+      <td>{{g.vehicle_number}}</td>
+      <td>{{g.date}}</td>
+      <td>{{g.entry_time}}</td>
+      <td>{{g.exit_time}}</td>
+      <td><a class="btn" href="/Gateapp/edit-Person?Personid={{g.id}}">EDIT</a></td>
+      <td><a class="btn" href="/Gateapp/delete-Person?Personid={{g.id}}">DELETE</a></td>
+
+      </tr>
+     {% endfor %}
+      </table>
+     </div>
+
+  </body>
+</html>

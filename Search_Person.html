@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>SEARCH  PERSON  RECORD</title>
+    <link rel="stylesheet" href="{% static 'Gcss/Gate.css'%}">
+
+  </head>
+  <body>
+    <div id="header">
+  <h1>GATE PASS MANAGEMENT SYSTEM</h1>
+  <div id="nav">
+    <a href="/Gateapp/view-Person">ALL PERSON</a>
+    <a href="/Gateapp/New-Person">ADD PERSON</a>
+    <a href="/Gateapp/Search-Person">SEARCH PERSON</a>
+    <a href="/Gateapp/logout">LOGOUT</a>
+    </div>
+  </div>
+    <div id="main">
+      <h2>SEARCH  PERSON  RECORD</h2>
+      <form action="/Gateapp/Search" method='post'>
+        {% csrf_token %}
+         {{form}}
+         <input type="submit" value="Search">
+
+         </form>
+         {% for g in gs %}
+
+               <table>
+               <tr>
+
+                   <td>{{g.full_name}}</td>
+                   <td>{{g.national_id}}</td>
+                   <td>{{g.phone_number}}</td>
+                   <td>{{g.gender}}</td>
+                   <td>{{g.vehicle_name}}</td>
+                   <td>{{g.vehicle_number}}</td>
+                   <td>{{g.date}}</td>
+                   <td>{{g.entry_time}}</td>
+                   <td>{{g.exit_time}}</td>
+               </tr>
+
+             {% endfor %}
+            </table>
+     </div>
+  </body>
+</html>

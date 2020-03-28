@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> Edit Person Records</title>
+    <<link rel="stylesheet" href="{% static 'Gcss/Gate.css'%}">
+  </head>
+  <body>
+
+    <div id="header">
+  <h1>GATE PASS MANAGEMENT</h1>
+  <div id="nav">
+    <a href="/Gateapp/view-Person">ALL PERSON</a>
+    <a href="/Gateapp/New-Person">ADD PERSON</a>
+    <a href="/Gateapp/Search-Person">SEARCH PERSON</a>
+    </div>
+
+  </div>
+
+    <div id="main">
+      <h2>Edit Person Record</h2>
+    <form action="/Gateapp/edit" method='post'>
+      {% csrf_token %}
+      <input type="hidden" name="Personid" value="{{g.id}}">
+      {{form}}
+      <input type="submit" value="save">
+
+      </form>
+     </div>
+
+  </body>
+</html>
